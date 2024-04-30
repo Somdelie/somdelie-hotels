@@ -15,11 +15,14 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="font-semibold text-2xl text-green-500">
+      <div className="container flex h-14 w-full sm:max-w-screen-2xl items-center justify-between">
+        <Link
+          href="/"
+          className="font-semibold text-sm sm:text-2xl text-green-500"
+        >
           Somdelie Hotels
         </Link>
-        <div className="relative md:grow-0">
+        <div className="relative md:grow-0 hidden sm:flex">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             type="search"
@@ -27,7 +30,7 @@ const Navbar = () => {
             className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
           />
         </div>
-        <div className="gap-4 hidden md:flex items-center">
+        <div className="gap-2 sm:gap-4 flex items-center">
           <ModeToggle />
           {userId ? (
             <UserMenu />
@@ -36,7 +39,9 @@ const Navbar = () => {
               <Button onClick={() => router.push("/sign-in")}>Sign in</Button>
             </div>
           )}
-          <UserButton />
+          <div className="mr-4 sm:mr-0 ">
+            <UserButton />
+          </div>
         </div>
       </div>
     </header>
